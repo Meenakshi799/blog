@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #F8F6F4 0%, #BFD7ED 100%);
+  font-family: 'Quicksand', Arial, sans-serif;
+  color: #444;
+  letter-spacing: 0.5px;
+  background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  background-size: 200px 200px;
+}
+
+.container {
+  max-width: 75vw;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+
+/* --- LOGO AREA --- */
+.header_container {
+  margin-bottom: 2.8rem;
+  text-align: center; /* Center the logo horizontally */
+}
+
+.header_container a {
+  display: inline-block; /* Only as big as the image */
+  margin: 0 auto;        /* Center the anchor */
+  padding: 0;
+  line-height: 0;        /* Remove extra space below the image */
+}
+
+.logo {
+  width: 260px;
+  height: 130px;
+  display: block;
+  margin: 0; /* No extra margin */
+  padding: 0;
+  filter: drop-shadow(0 2px 8px #BFD7ED55);
+}
+
+/* --- MAIN CONTENT --- */
+.main_container {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card_container {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #E2E2E2;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(120deg, #F7D6E0 0%, #A3C9A8 100%);
+  box-shadow: 0 6px 24px 0 rgba(191, 215, 237, 0.18), 0 1.5px 8px 0 rgba(163, 201, 168, 0.12);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.card_container:hover {
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 12px 32px 0 rgba(191, 215, 237, 0.22), 0 3px 12px 0 rgba(163, 201, 168, 0.18);
+}
+
+.card_image_container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  border-radius: 18px 18px 0 0;
+}
+
+.card_image {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s linear;
+  display: block;
+  filter: brightness(0.97) saturate(1.1);
+  max-width: 100%;
+  height: 650px;
+  border-radius: 18px 18px 0 0;
+}
+
+.card_image_container:hover .card_image {
+  transform: scale(1.07);
+  filter: brightness(0.93) saturate(1.2);
+}
+
+.card_label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  opacity: 0;
+  background: rgba(191, 215, 237, 0.7);
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(163,201,168,0.18);
+}
+
+.card_image_container:hover .card_label {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(163,201,168,0.18) 0%, rgba(247,214,224,0.22) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  pointer-events: none;
+}
+
+.card_image_container:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.explore_btn {
+  margin-bottom: 2.2rem;
+  padding: 1.1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #BFD7ED 0%, #F7D6E0 100%);
+  color: #444;
+  font-size: 1.15rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(163,201,168,0.13);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  backdrop-filter: blur(2px);
+  outline: none;
+}
+
+.explore_btn:hover {
+  background: linear-gradient(90deg, #A3C9A8 0%, #F7D6E0 100%);
+  color: #fff;
+  transform: scale(1.09);
+  box-shadow: 0 4px 16px rgba(191,215,237,0.18);
+}
+
+@media (max-width: 900px) {
+  .main_container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .container {
+    max-width: 95vw;
+    padding: 1rem 0.5rem;
+  }
+}
